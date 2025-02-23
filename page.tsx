@@ -23,56 +23,56 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100" dir="rtl">
-      <Header onSelfAssessmentClick={handleSelfAssessmentClick} />
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {!showSelfAssessment ? (
-            <>
-              <section id="main" className="mb-16">
-                <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">ביקורת חשבונות</h1>
-                <div className="mb-8">
-                  <Podcast />
-                </div>
-                <p className="text-lg text-center text-gray-600">
-                  סקירה של מושגים מרכזיים בתחום הבקרה הפנימית והביקורת
-                </p>
-              </section>
+    <>
+      <div className="min-h-screen bg-gray-100" dir="rtl">
+        <Header onSelfAssessmentClick={handleSelfAssessmentClick} />
+        <div className="py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {!showSelfAssessment ? (
+              <>
+                <section id="main" className="mb-16">
+                  <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">ביקורת חשבונות</h1>
+                  <p className="text-lg text-center text-gray-600">
+                    סקירה של מושגים מרכזיים בתחום הבקרה הפנימית והביקורת
+                  </p>
+                </section>
 
-              <section id="timeline" className="mb-16">
-                <Timeline items={timelineData} />
-              </section>
+                <section id="timeline" className="mb-16">
+                  <Timeline items={timelineData} />
+                </section>
 
-              <section id="key-players" className="mb-16">
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
-                  שחקנים מרכזיים בתחום הבקרה הפנימית והביקורת
-                </h2>
-                <KeyPlayers players={keyPlayersData} />
-              </section>
+                <section id="key-players" className="mb-16">
+                  <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+                    שחקנים מרכזיים בתחום הבקרה הפנימית והביקורת
+                  </h2>
+                  <KeyPlayers players={keyPlayersData} />
+                </section>
 
-              <section id="faq" className="mb-16">
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
-                  שאלות נפוצות בנושא ביקורת פנימית וחשבונות
-                </h2>
-                <FAQ items={faqData} />
-              </section>
+                <section id="faq" className="mb-16">
+                  <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+                    שאלות נפוצות בנושא ביקורת פנימית וחשבונות
+                  </h2>
+                  <FAQ items={faqData} />
+                </section>
 
-              <section id="summary" className="mb-16">
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">סיכום תמציתי של ביקורת חשבונות</h2>
-                <Summary items={summaryData} />
+                <section id="summary" className="mb-16">
+                  <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">סיכום תמציתי של ביקורת חשבונות</h2>
+                  <Summary items={summaryData} />
+                </section>
+              </>
+            ) : (
+              <section id="self-assessment">
+                <Button onClick={() => setShowSelfAssessment(false)} className="mb-6" variant="outline">
+                  חזרה לעמוד הראשי
+                </Button>
+                <SelfAssessment />
               </section>
-            </>
-          ) : (
-            <section id="self-assessment">
-              <Button onClick={() => setShowSelfAssessment(false)} className="mb-6" variant="outline">
-                חזרה לעמוד הראשי
-              </Button>
-              <SelfAssessment />
-            </section>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <Podcast />
+    </>
   )
 }
 

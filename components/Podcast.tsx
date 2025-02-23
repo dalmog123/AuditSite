@@ -51,11 +51,23 @@ const Podcast = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-[9999]">
       <div className="max-w-3xl mx-auto flex items-center gap-6">
-        {/* Total Duration (moved to left) */}
+        {/* Play/Pause Button (moved to left) */}
+        <button
+          onClick={handlePlay}
+          className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all"
+        >
+          {isPlaying ? (
+            <Pause className="w-5 h-5" />
+          ) : (
+            <Play className="w-5 h-5 ml-1" />
+          )}
+        </button>
+
+        {/* Current Time (moved to right of play button) */}
         <span className="text-sm font-medium text-gray-600 w-12">
-          {formatTime(duration)}
+          {formatTime(currentTime)}
         </span>
 
         {/* Progress Bar */}
@@ -78,26 +90,14 @@ const Podcast = () => {
           </div>
         </div>
 
-        {/* Current Time (moved next to play button) */}
+        {/* Total Duration (moved to right) */}
         <span className="text-sm font-medium text-gray-600 w-12 text-right">
-          {formatTime(currentTime)}
+          {formatTime(duration)}
         </span>
-
-        {/* Play/Pause Button (moved to right) */}
-        <button
-          onClick={handlePlay}
-          className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all"
-        >
-          {isPlaying ? (
-            <Pause className="w-5 h-5" />
-          ) : (
-            <Play className="w-5 h-5 ml-1" />
-          )}
-        </button>
 
         <audio
           ref={audioRef}
-          src="/sound/Internal Control and Auditing Procedures_ A Comprehensive Guide.mp3"
+          src="/Sound/Internal Control and Auditing Procedures_ A Comprehensive Guide.mp3"
           preload="metadata"
         />
       </div>
