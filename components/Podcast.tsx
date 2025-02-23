@@ -51,10 +51,10 @@ const Podcast = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 z-50">
       <div className="max-w-3xl mx-auto flex items-center gap-6">
         {/* Total Duration (moved to left) */}
-        <span className="text-sm font-medium text-gray-600 w-16">
+        <span className="text-sm font-medium text-gray-600 w-12">
           {formatTime(duration)}
         </span>
 
@@ -79,19 +79,19 @@ const Podcast = () => {
         </div>
 
         {/* Current Time (moved next to play button) */}
-        <span className="text-sm font-medium text-gray-600 w-16 text-right">
+        <span className="text-sm font-medium text-gray-600 w-12 text-right">
           {formatTime(currentTime)}
         </span>
 
         {/* Play/Pause Button (moved to right) */}
         <button
           onClick={handlePlay}
-          className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all"
+          className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg hover:from-blue-600 hover:to-blue-700 transition-all"
         >
           {isPlaying ? (
-            <Pause className="w-6 h-6" />
+            <Pause className="w-5 h-5" />
           ) : (
-            <Play className="w-6 h-6 ml-1" />
+            <Play className="w-5 h-5 ml-1" />
           )}
         </button>
 
